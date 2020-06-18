@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+{% for movie in movies %}
+  title : <a href="{% url 'movies:detail' movie.pk %}">{{ movie.title }}</a> , score : {{ movie.score }}
+  <hr>
+{% endfor %}
+
+<h2><a href="{% url 'movies:create' %}">영화 추가하기</a></h2>
+{% endblock %}

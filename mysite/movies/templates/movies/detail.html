@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+  <h1>{{ movie.title }}</h1>
+  <h4>{{ movie.title_en }}</h4>
+  <hr>
+  <h3>누적관객수 : {{ movie.audience }}명</h3>
+  개봉일 : {{ movie.open_date }}</p>
+  <p>장르 : {{ movie.genre }}</p>
+  <p>관람등급 : {{ movie.watch_grade }}</p>
+  <p>평점 : {{ movie.score }}</p>
+  <img src="{{ movie.poster_url }}" width="40%" height="30%">
+  <h3>영화 소개 : {{ movie.description }}</h3>
+
+  <h4><a href="{% url 'movies:update' movie.pk %}">글 수정</a></h4> &nbsp;
+  <h4><a href="{% url 'movies:delete' movie.pk %}"> 글 삭제하기</a></h4> &nbsp;
+  <h4><a href="{% url 'movies:index' %}"> [back]</a></h4> &nbsp;
+{% endblock %}
